@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 MAINTAINER Tremolo Security, Inc. - Docker <docker@tremolosecurity.com>
 
 ENV BUILDER_VERSION=1.0 \
-    JDK_VERSION=1.8.0 \
+    JDK_VERSION=1.11.0 \
     MAVEN_VERSION=3.3.9 \
     OPENUNISON_VERSION="1.0.16"
 
@@ -13,7 +13,7 @@ LABEL io.k8s.description="Platform for building Tremolo Security OpenUnison" \
       io.openshift.tags="builder,1.0.16,sso,identity management" \
       io.openshift.s2i.scripts-url="image:///usr/local/bin/s2i"
 
-RUN apt-get update;apt-get -y install curl openjdk-8-jdk-headless wget unzip python;apt-get -y upgrade;apt-get clean;rm -rf /var/lib/apt/lists/*; \ 
+RUN apt-get update;apt-get -y install curl openjdk-11-jdk-headless wget unzip python;apt-get -y upgrade;apt-get clean;rm -rf /var/lib/apt/lists/*; \ 
     mkdir -p /etc/openunison && \
     mkdir -p /etc/openunison-local && \
     mkdir -p /usr/local/openunison && \
